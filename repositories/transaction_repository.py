@@ -7,7 +7,7 @@ from models.merchant import Merchant
 
 def save(transaction):
     sql = "INSERT INTO transactions (amount, merchant_id, tag_id) VALUES (%s, %s, %s) RETURNING id"
-    values = [transaction.amount, transaction.merchant_id, transaction.tag_id]
+    values = [transaction.amount, transaction.merchant_id.id, transaction.tag_id.id]
     results = run_sql(sql, values)
     transaction.id = results[0]['id']
     return transaction

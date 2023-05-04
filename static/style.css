@@ -1,0 +1,56 @@
+.top_banner {
+    text-align: center;
+    font-size: 80px;
+}
+
+.background {
+    background-color: aqua;
+}
+.home_container {
+    grid-template-columns: 1fr;
+
+}
+
+#homepage_title {
+    text-align: center;
+}
+
+.home_container ul {
+    display: flex;  /* set the display property to flex */
+    justify-content: space-between; /* space the list items evenly across the container */
+    list-style: none; /* remove the default list style */
+    padding: 50; /* remove any default padding */
+  }
+  
+  .home_container ul li {
+    margin-right: 20px; /* add some space between the list items */
+  }
+  
+  .home_container ul li:last-child {
+    margin-right: 0; /* remove margin-right for the last list item */
+  }
+  
+  .transaction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* create auto-fit grid with minimum width of 300px */
+    grid-gap: 20px; /* set the gap between grid items */
+  }
+  
+  .transaction-card {
+    background-color: aqua;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .tag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* create auto-fit grid with minimum width of 300px */
+    grid-gap: 20px; /* set the gap between grid items */
+  }
+  
+  .tag-card {
+    background-color: aqua;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  

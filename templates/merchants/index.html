@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+    {% block content %}
+    
+    <div>
+      <h1>Merchant page</h1>
+        <div class="tag-grid">
+          {% for merchant in merchants %}
+            <div class="merchant-card">
+              <h2>{{ merchant.name }}</h2>
+                <a href="/merchant/{{ merchant.id }}/edit">Edit Merchant</a>
+            </div>
+          {% endfor %}
+        </div>
+        <a href="/merchant/new_merchant">Add new Merchant</a>
+
+    </div>
+    
+    {% endblock %}
+    
+    

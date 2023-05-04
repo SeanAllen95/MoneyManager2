@@ -7,7 +7,7 @@ from models.merchant import Merchant
 
 def save(transaction):
     sql = "INSERT INTO transactions (amount, merchant_id, tag_id) VALUES (%s, %s, %s) RETURNING id"
-    values = [transaction.amount, transaction.merchant_id.id, transaction.tag_id.id]
+    values = [transaction.amount, transaction.merchant_id, transaction.tag_id]
     results = run_sql(sql, values)
     transaction.id = results[0]['id']
     return transaction
@@ -18,19 +18,19 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         transaction = Transaction(row['amount'], row['merchant_id'], row['tag_id'], row['id'])
-        transactions.append(transactions)
+        transactions.append(transaction)
     
     return transactions
 
-# def select(id):
-#     merchant = None
-#     sql = "SELECT * FROM merchants WHERE id = %s"
-#     values = [id]
-#     result = run_sql(sql, values)[0]
+def select(id):
+    transaction = None
+    sql = "SELECT * FROM transactions WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
 
-#     if result is not None:
-#         merchant = Merchant(result['name'], result['category'], result['amount'], result['id'])
-#     return merchant
+    if result is not None:
+        transaction = Transaction(result['amount'], result['merchant_id'], result['tag_id'], result['id'])
+    return transaction
 
 def delete_all():
     sql = "DELETE FROM transactions"
@@ -41,7 +41,17 @@ def delete_all():
 #     values = [id]
 #     run_sql(sql, values)
 
-# def update(merchant):
-#     sql = "UPDATE merchants SET (name, category, amount) = (%s, %s, %s) WHERE id = %s"
-#     values = [merchant.name, merchant.category, merchant.amount, merchant.id]
-#     run_sql(sql, values)
+def update(transaction):
+    sql = "UPDATE transactions SET (amount, merchant_id, tag_id) = (%s, %s, %s) WHERE id = %s"
+    values = [transaction.amount, transaction.merchant_id, transaction.tag_id, transaction.id]
+    run_sql(sql, values)
+
+def find_transaction_total():
+    sql = "SELECT SUM(amount) FROM transactions"
+    result = run_sql(sql)
+    return result[0][0]
+
+def get_real_names():
+    sql = "SELECT transactions.amount, merchants.name, tags.category FROM transactions JOIN merchants ON transactions.merchant_id = merchants.id JOIN tags ON transactions.tag_id = tags.id"
+    real_names_result = run_sql(sql)
+    return real_names_result

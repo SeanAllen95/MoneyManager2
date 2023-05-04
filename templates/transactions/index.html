@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div>
+    <h1>Transaction Total: £{{ transaction_total }}</h1>
+    <h1>Transactions page</h1>
+    <div class="tag-grid">
+        {% for transaction in transactions %}
+        <div class="merchant-card">
+            <h2>Amount: £{{ transaction.amount }}</h2>
+            <h2>Merchant: {{ transaction[1] }}</h2>
+            <h2>Category: {{ transaction[2] }}</h2>
+            <a href="/transaction/{{ transaction.id }}/edit">Edit Transaction</a>
+        </div>
+        {% endfor %}
+        <a href="/transaction/new_transaction">Add new Transaction</a>
+    </div>
+</div>
+
+{% endblock %}
+    
+    

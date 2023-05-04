@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div>
+    <h1>Tag page</h1>
+    <div class="tag-grid">
+        {% for tag in tags %}
+        <div class="merchant-card">
+            <h2>{{ tag.category }}</h2>
+            <a href="/tag/{{ tag.id }}/edit">Edit a Tag</a>
+        </div>
+        {% endfor %}
+        <a href="/tag/new_tag">Add new Tag</a>
+    </div>
+</div>
+    
+{% endblock %}
+    
+    

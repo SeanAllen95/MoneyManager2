@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>New Merchant</h1>
+
+    <form action="/merchant/new" method="post">
+        <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" required>
+        </div>    
+        <button type="submit">Add Merchant</button>
+  
+    </form>
+
+{% endblock %}

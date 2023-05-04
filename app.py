@@ -4,7 +4,6 @@ from controllers.tag_controller import tag_blueprint
 from controllers.merchant_controller import merchant_blueprint
 from controllers.transaction_controller import transaction_blueprint
 
-from repositories import account_repository
 
 app = Flask(__name__)
 
@@ -14,7 +13,6 @@ app.register_blueprint(transaction_blueprint)
 
 @app.route('/')
 def home():
-    # account = account_repository.select_all()
     return render_template('index.html')
 
 

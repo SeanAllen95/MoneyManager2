@@ -12,25 +12,25 @@ def save(tag):
     tag.id = results[0]['id']
     return tag
 
-# def select_all():
-#     merchants = []
-#     sql = "SELECT * FROM merchants"
-#     results = run_sql(sql)
-#     for row in results:
-#         merchant = Merchant(row['name'], row['category'], row['amount'], row['id'])
-#         merchants.append(merchant)
+def select_all():
+    tags = []
+    sql = "SELECT * FROM tags"
+    results = run_sql(sql)
+    for row in results:
+        tag = Tag(row['category'], row['id'])
+        tags.append(tag)
     
-#     return merchants
+    return tags
 
-# def select(id):
-#     merchant = None
-#     sql = "SELECT * FROM merchants WHERE id = %s"
-#     values = [id]
-#     result = run_sql(sql, values)[0]
+def select(id):
+    tag = None
+    sql = "SELECT * FROM tags WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
 
-#     if result is not None:
-#         merchant = Merchant(result['name'], result['category'], result['amount'], result['id'])
-#     return merchant
+    if result is not None:
+        tag = Tag(result['category'], result['id'])
+    return tag
 
 def delete_all():
     sql = "DELETE FROM tags"
@@ -41,7 +41,7 @@ def delete_all():
 #     values = [id]
 #     run_sql(sql, values)
 
-# def update(merchant):
-#     sql = "UPDATE merchants SET (name, category, amount) = (%s, %s, %s) WHERE id = %s"
-#     values = [merchant.name, merchant.category, merchant.amount, merchant.id]
-#     run_sql(sql, values)
+def update(tag):
+    sql = "UPDATE tags SET category = %s WHERE id = %s"
+    values = [tag.category, tag.id]
+    run_sql(sql, values)

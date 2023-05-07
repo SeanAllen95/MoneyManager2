@@ -3,17 +3,20 @@
     {% block content %}
     
     <div>
-      <h1>Merchant page</h1>
-        <div class="tag-grid">
+      <h1 class="page_title">Merchant page</h1>
+        <div class="merchant-grid">
           {% for merchant in merchants %}
             <div class="merchant-card">
               <h2>{{ merchant.name }}</h2>
                 <a href="/merchant/{{ merchant.id }}/edit">Edit Merchant</a>
+                <form method="post" action="/merchant/{{ merchant.id }}/delete">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit">Delete Merchant</button>
+                </form>
             </div>
           {% endfor %}
+        <a class="add_new_link" href="/merchant/new_merchant">Add new Merchant</a>
         </div>
-        <a href="/merchant/new_merchant">Add new Merchant</a>
-
     </div>
     
     {% endblock %}

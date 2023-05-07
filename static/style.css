@@ -1,56 +1,123 @@
 .top_banner {
     text-align: center;
     font-size: 80px;
+    font-style: italic;
 }
 
 .background {
-    background-color: aqua;
+    background-color: rgb(168, 246, 168);
 }
+
+main section ul li {
+  font-size: 40px;
+}
+
 .home_container {
-    grid-template-columns: 1fr;
-
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
 }
 
-#homepage_title {
-    text-align: center;
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.home_container ul {
-    display: flex;  /* set the display property to flex */
-    justify-content: space-between; /* space the list items evenly across the container */
-    list-style: none; /* remove the default list style */
-    padding: 50; /* remove any default padding */
-  }
+li {
+  margin: 0 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(248, 232, 201);
+  border: solid;
+  border-color: black;
+  border-radius: 20px;
+  width: 300px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
   
-  .home_container ul li {
+
+.home_container ul li {
     margin-right: 20px; /* add some space between the list items */
   }
-  
-  .home_container ul li:last-child {
-    margin-right: 0; /* remove margin-right for the last list item */
-  }
-  
-  .transaction-grid {
+
+.transaction-grid {
+    max-width: max-content;
+    margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* create auto-fit grid with minimum width of 300px */
-    grid-gap: 20px; /* set the gap between grid items */
+    grid-template-columns: 400px 400px 400px;
+    grid-gap: 20px;
+  }
+
+.transaction-card {
+  background-color: rgb(248, 232, 201);
+  padding: 20px;
+  border: solid;
+  border-color: black;
+  border-radius: 20px;
   }
   
-  .transaction-card {
-    background-color: aqua;
-    padding: 20px;
-    border-radius: 5px;
-  }
+.tag-grid {
+  max-width: max-content;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-gap: 20px;
+}
   
-  .tag-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* create auto-fit grid with minimum width of 300px */
-    grid-gap: 20px; /* set the gap between grid items */
-  }
+.tag-card {
+  background-color: rgb(248, 232, 201);
+  padding: 20px;
+  border: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
+.merchant-grid {
+  max-width: max-content;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-gap: 20px;
+}
   
-  .tag-card {
-    background-color: aqua;
-    padding: 20px;
-    border-radius: 5px;
-  }
-  
+.merchant-card {
+  background-color: rgb(248, 232, 201);
+  padding: 20px;
+  border: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
+.add_new_link {
+  background-color: rgb(248, 232, 201);
+  padding: 20px;
+  border: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
+.page_title {
+  font-style: italic;
+  font-size: 40px;
+
+}
+#transaction_total {
+  font-size: 30px;
+}
+
+.new_edit_page {
+  background-color: rgb(248, 232, 201);
+  padding: 20px;
+  width: 300px;
+  border: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+

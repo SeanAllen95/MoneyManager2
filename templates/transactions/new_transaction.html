@@ -2,38 +2,30 @@
 
 {% block content %}
 <h1>New Transaction</h1>
-
-    <form action="/transaction" method="post">
-        <div>
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" placeholder="Amount" required>
-        </div>
-
-        <label for="merchant">Merchant:</label>
-            <select id="merchant" name="merchant">
-                {% for merchant in merchants %}
-                <option value="{{ merchant.id }}">{{ merchant.name }}</option>
-                {% endfor %}
-            </select>
-        </div> 
-  
-        <div>
-             <label for="tag">Tag:</label>
-            <select id="tag" name="tag">
-                {% for tag in tags %}
-            <option value="{{ tag.id }}">{{ tag.category }}</option>
-                {% endfor %}
-    </select>
-        <!-- <div>
-        <label for="merchant">Merchant:</label>
-        <input type="text" id="merchant" name="merchant" placeholder="Merchant" required>
-        </div>  
-        <div>
-        <label for="tag">Tag:</label>
-        <input type="text" id="tag" name="tag" placeholder="Tag" required> -->
-        </div>  
-        <button type="submit">Add Transaction</button>
-   
-    </form>
-
+    <section class="new_edit_page">
+        <form action="/transaction" method="post">
+            <div>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" placeholder="Amount" required>
+            </div>
+                <label for="merchant">Merchant:</label>
+                    <select id="merchant" name="merchant">
+                        {% for merchant in merchants %}
+                        <option value="{{ merchant.id }}">{{ merchant.name }}</option>
+                        {% endfor %}
+                    </select>
+                <p>Merchant not in list? <a href="/merchant/new_merchant">Add new Merchant</a></p>
+            </div> 
+            <div>
+                <label for="tag">Tag:</label>
+                    <select id="tag" name="tag">
+                        {% for tag in tags %}
+                        <option value="{{ tag.id }}">{{ tag.category }}</option>
+                        {% endfor %}
+                    </select>
+                <p>Tag not in list? <a href="/tag/new_tag">Add new Tag</a></p>
+            </div>
+            <button type="submit">Add Transaction</button>
+        </form>
+    </section>
 {% endblock %}

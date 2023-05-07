@@ -53,7 +53,7 @@ def update_method(id):
 #     merchant = merchant_repository.select(id)
 #     return render_template("merchant/view.html", merchant = merchant)
 
-# @merchant_blueprint.route("/merchant/<id>/delete", methods=['POST'])
-# def delete_merchant(id):
-#     merchant_repository.delete(id)
-#     return redirect('/merchant')
+@merchant_blueprint.route("/merchant/<id>/delete", methods=['POST'])
+def delete_merchant(id):
+    merchant_repository.delete(id)
+    return redirect('/merchants')

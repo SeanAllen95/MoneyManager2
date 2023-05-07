@@ -2,13 +2,14 @@
 
 {% block content %}
 <h1>Edit Merchant</h1>
-
-<form action="/merchant/{{merchant.id}}" method="post">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" value="{{merchant.name}}" required>
-    </div>
-      <button type="submit">Update Merchant</button>
-  </form>
+  <section class="new_edit_page">
+    <form action="/merchant/{{merchant.id}}" method="post">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{merchant.name}}" required>
+      </div>
+        <button type="submit">Update Merchant</button>
+    </form>
+  </section>
 
 {% endblock %}

@@ -5,20 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Money Manager</title>
+    <title>Money Manager &#128176;</title>
 </head>
 <body class="background">
     <header>
         <section class="top_banner">
-        <a href="/">Money Manager</a>
+        <a href="/">Money Manager &#128176;</a>
         </section>
     </header>
-    <main class="home_page_grid">
-        <section>
-            {% block content %}
-      
-            {% endblock%}
+    <main>
+        <section class="home_container">
+            <ul>
+                <li><a href="/transactions">Transaction Page</a></li>
+                <li><a href="/merchants">Merchant Page</a></li>
+                <li><a href="/tags">Tag Page</a></li>
+                
+            </ul>
         </section>
+            <section>
+                {% block content %}
+        
+                {% endblock%}
+            </section>
     </main>
 </body>
 </html>

@@ -36,10 +36,10 @@ def delete_all():
     sql = "DELETE FROM tags"
     run_sql(sql)
 
-# def delete(id):
-#     sql = "DELETE FROM merchants WHERE id = %s"
-#     values = [id]
-#     run_sql(sql, values)
+def delete(id):
+    sql = "DELETE FROM tags WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 def update(tag):
     sql = "UPDATE tags SET category = %s WHERE id = %s"

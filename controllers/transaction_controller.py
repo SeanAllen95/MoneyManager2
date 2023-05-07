@@ -12,11 +12,10 @@ transaction_blueprint = Blueprint("transaction", __name__)
 @transaction_blueprint.route("/transactions")
 def transaction():
     transactions = transaction_repository.select_all()
-    tags = tag_repository.select_all()
-    merchants = merchant_repository.select_all()
     transaction_total = transaction_repository.find_transaction_total()
-    real_names = transaction_repository.get_real_names()
-    return render_template("transactions/index.html", transactions = transactions, transaction_total = transaction_total, tags = tags, merchants = merchants, real_names = real_names)
+    # merchants = transaction_repository.join_merchants()
+    # tags = transaction_repository.join_tags()
+    return render_template("transactions/index.html", transactions = transactions, transaction_total = transaction_total)
 
 # @merchant_blueprint.route("/merchant/transactions")
 # def transactions():

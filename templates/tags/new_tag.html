@@ -2,14 +2,14 @@
 
 {% block content %}
 <h1>New Tag</h1>
-
+    <section class="new_edit_page">
     <form action="/tag" method="post">
         <div>
         <label for="category">Category:</label>
         <input type="text" id="category" name="category" placeholder="Category" required>
         </div>    
         <button type="submit">Add Tag</button>
-  
+    </section>
     </form>
 
 {% endblock %}

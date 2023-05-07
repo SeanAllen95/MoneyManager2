@@ -7,7 +7,7 @@ from models.merchant import Merchant
 
 def save(transaction):
     sql = "INSERT INTO transactions (amount, merchant_id, tag_id) VALUES (%s, %s, %s) RETURNING id"
-    values = [transaction.amount, transaction.merchant_id.id, transaction.tag_id.id]
+    values = [transaction.amount, transaction.merchant_id, transaction.tag_id]
     results = run_sql(sql, values)
     transaction.id = results[0]['id']
     return transaction
@@ -51,7 +51,17 @@ def find_transaction_total():
     result = run_sql(sql)
     return result[0][0]
 
-def get_real_names():
-    sql = "SELECT transactions.amount, merchants.name, tags.category FROM transactions JOIN merchants ON transactions.merchant_id = merchants.id JOIN tags ON transactions.tag_id = tags.id"
-    real_names_result = run_sql(sql)
-    return real_names_result
+# def get_real_names():
+#     sql = "SELECT transactions.amount, merchants.name, tags.category FROM transactions JOIN merchants ON transactions.merchant_id = merchants.id JOIN tags ON transactions.tag_id = tags.id"
+#     real_names_result = run_sql(sql)
+#     return real_names_result
+
+# def join_merchants():
+#     sql = "SELECT name FROM transactions INNER JOIN merchants ON transactions.merchant_id = merchants.id"
+#     result = run_sql(sql)
+#     print(result)
+
+# def join_tags():
+#     sql = "SELECT category FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id"
+#     result = run_sql(sql)
+#     print(result)

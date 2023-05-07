@@ -2,14 +2,14 @@
 
 {% block content %}
 <h1>Edit Tag</h1>
-
-<form action="/tag/{{tag.id}}" method="post">
-    <div>
-      <label for="category">Category:</label>
-      <input type="text" id="category" name="category" value="{{tag.category}}" required>
-    </div>
-      <button type="submit">Update Tag</button>
-  </form>
-  
+  <section class="new_edit_page">
+    <form action="/tag/{{tag.id}}" method="post">
+      <div>
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" value="{{tag.category}}" required>
+      </div>
+        <button type="submit">Update Tag</button>
+    </form>
+  </section>
 
 {% endblock %}

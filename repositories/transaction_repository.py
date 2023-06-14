@@ -5,11 +5,13 @@ from models.tag import Tag
 from models.transaction import Transaction
 from models.merchant import Merchant
 
+# get help with this save function
+
 def save(transaction):
     sql = "INSERT INTO transactions (amount, merchant_id, tag_id) VALUES (%s, %s, %s) RETURNING id"
-    values = [transaction.amount, transaction.merchant_id, transaction.tag_id]
+    values = [transaction.amount, transaction.merchant_id.id, transaction.tag_id.id]
     results = run_sql(sql, values)
-    transaction.id = results[0]['id']
+    transaction = results[0]['id']
     return transaction
 
 def select_all():
@@ -65,3 +67,9 @@ def find_transaction_total():
 #     sql = "SELECT category FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id"
 #     result = run_sql(sql)
 #     print(result)
+
+def join_tables():
+    sql = "SELECT transactions.amount, merchants.name, tags.category FROM transactions JOIN merchants ON transactions.merchant_id = merchants.id JOIN tags ON transactions.tag_id = tags.id"
+    result = run_sql(sql)
+    return result
+

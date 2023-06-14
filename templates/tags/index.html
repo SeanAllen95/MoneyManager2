@@ -4,17 +4,17 @@
 
 <div>
     <h1 class="page_title">Tag page</h1>
-    <div class="tag-grid">
-        {% for tag in tags %}
-        <div class="tag-card">
-            <h2>{{ tag.category }}</h2>
-            <a href="/tag/{{ tag.id }}/edit">Edit Tag</a>
-            <form method="post" action="/tag/{{ tag.id }}/delete">
-                <input type="hidden" name="_method" value="DELETE">
-                <button type="submit">Delete Tag</button>
-              </form>
-        </div>
-        {% endfor %}
+        <div class="tag-grid">
+            {% for tag in tags %}
+            <div class="tag-card">
+                <h2>{{ tag.category }}</h2>
+                    <a href="/tag/{{ tag.id }}/edit">Edit Tag</a>
+                        <form method="post" action="/tag/{{ tag.id }}/delete">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">Delete Tag</button>
+                        </form>
+                    </div>
+                {% endfor %}
         <a class="add_new_link" href="/tag/new_tag">Add new Tag</a>
     </div>
 </div>

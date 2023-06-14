@@ -8,4 +8,7 @@ class TestTag(unittest.TestCase):
 
     def test_tag_has_category(self):
         self.assertEqual("Clothing", self.tag.category)
+
+
+
     

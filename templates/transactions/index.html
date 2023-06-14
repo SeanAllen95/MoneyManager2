@@ -3,14 +3,14 @@
 {% block content %}
 
 <div>
-    <h1 class="page_title">Transactions page</h1>
+    <h1 class="page_title">Transaction page</h1>
     <h1 id="transaction_total">Transaction Total: £{{ transaction_total }}</h1>
     <div class="transaction-grid">
         {% for transaction in transactions %}
         <div class="transaction-card">
             <h2>Amount: £{{ transaction.amount }}</h2>
-            <h2>Merchant: {{ transaction.name }}</h2>
-            <h2>Category: {{ transaction.category }}</h2>
+            <h2>Merchant: {{ transaction[1] }}</h2>
+            <h2>Category: {{ transaction[2] }}</h2>
             <a href="/transaction/{{ transaction.id }}/edit">Edit Transaction</a>
         </div>
         {% endfor %}

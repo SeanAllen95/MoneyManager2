@@ -11,7 +11,7 @@ transaction_blueprint = Blueprint("transaction", __name__)
 
 @transaction_blueprint.route("/transactions")
 def transaction():
-    transactions = transaction_repository.select_all()
+    transactions = transaction_repository.join_tables()
     transaction_total = transaction_repository.find_transaction_total()
     # merchants = transaction_repository.join_merchants()
     # tags = transaction_repository.join_tags()

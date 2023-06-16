@@ -9,9 +9,13 @@
         {% for transaction in transactions %}
         <div class="transaction-card">
             <h2>Amount: £{{ transaction.amount }}</h2>
-            <h2>Merchant: {{ transaction[1] }}</h2>
-            <h2>Category: {{ transaction[2] }}</h2>
+            <h2>Merchant: {{ transaction[2] }}</h2>
+            <h2>Category: {{ transaction[3] }}</h2>
             <a href="/transaction/{{ transaction.id }}/edit">Edit Transaction</a>
+            <form method="post" action="/transaction/{{ transaction.id }}/delete">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit">Delete Transaction</button>
+            </form>
         </div>
         {% endfor %}
         <a class="add_new_link" href="/transaction/new_transaction">Add new Transaction</a>
@@ -19,5 +23,3 @@
 </div>
 
 {% endblock %}
-    
-    

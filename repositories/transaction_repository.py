@@ -9,7 +9,7 @@ from models.merchant import Merchant
 
 def save(transaction):
     sql = "INSERT INTO transactions (amount, merchant_id, tag_id) VALUES (%s, %s, %s) RETURNING id"
-    values = [transaction.amount, transaction.merchant_id.id, transaction.tag_id.id]
+    values = [transaction.amount, transaction.merchant_id, transaction.tag_id]
     results = run_sql(sql, values)
     transaction = results[0]['id']
     return transaction
@@ -38,10 +38,10 @@ def delete_all():
     sql = "DELETE FROM transactions"
     run_sql(sql)
 
-# def delete(id):
-#     sql = "DELETE FROM merchants WHERE id = %s"
-#     values = [id]
-#     run_sql(sql, values)
+def delete(id):
+    sql = "DELETE FROM transactions WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 def update(transaction):
     sql = "UPDATE transactions SET (amount, merchant_id, tag_id) = (%s, %s, %s) WHERE id = %s"
@@ -69,7 +69,7 @@ def find_transaction_total():
 #     print(result)
 
 def join_tables():
-    sql = "SELECT transactions.amount, merchants.name, tags.category FROM transactions JOIN merchants ON transactions.merchant_id = merchants.id JOIN tags ON transactions.tag_id = tags.id"
+    sql = "SELECT transactions.amount, transactions.id, merchants.name, tags.category FROM transactions JOIN merchants ON transactions.merchant_id = merchants.id JOIN tags ON transactions.tag_id = tags.id"
     result = run_sql(sql)
     return result
 

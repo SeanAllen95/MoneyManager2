@@ -16,19 +16,7 @@ def transaction():
     transactions = transaction_repository.join_tables()
     all_transactions = transaction_repository.select_all()
     transaction_total = transaction_repository.find_transaction_total()
-    # merchants = transaction_repository.join_merchants()
-    # tags = transaction_repository.join_tags()
     return render_template("transactions/index.html", transactions = transactions, transaction_total = transaction_total, all_transactions = all_transactions)
-
-# @merchant_blueprint.route("/merchant/transactions")
-# def transactions():
-#     merchant = merchant_repository.select_all()
-#     return render_template("merchant/transactions.html", merchant = merchant)
-
-# @merchant_blueprint.route("/merchant/new")
-# def new_merchant():
-#     merchants = merchant_repository.select_all()
-#     return render_template("merchant/new_merchant.html", merchants = merchants)
 
 @transaction_blueprint.route("/transaction/new_transaction")
 def new_transaction():
@@ -65,11 +53,6 @@ def update_method(id):
     merchant_repository.update(name)
     tag_repository.update(category)
     return redirect('/transactions')
-
-# @merchant_blueprint.route("/merchant/<id>/view", methods=['GET'])
-# def view_merchant(id):
-#     merchant = merchant_repository.select(id)
-#     return render_template("merchant/view.html", merchant = merchant)
 
 @transaction_blueprint.route("/transaction/<id>/delete", methods=['POST'])
 def delete_transaction(id):

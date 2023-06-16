@@ -10,10 +10,10 @@ transaction_repository.delete_all()
 merchant_repository.delete_all()
 tag_repository.delete_all()
 
-tag1 = Tag("Food")
+tag1 = Tag("Bills")
 tag_repository.save(tag1)
 
-merchant1 = Merchant("Tesco")
+merchant1 = Merchant("Scottish Power")
 merchant_repository.save(merchant1)
 
 transaction1 = Transaction(100, merchant1, tag1)

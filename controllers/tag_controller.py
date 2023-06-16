@@ -15,20 +15,10 @@ def tag():
     tags = tag_repository.select_all()
     return render_template("/tags/index.html", tags = tags)
 
-# @merchant_blueprint.route("/merchant/transactions")
-# def transactions():
-#     merchant = merchant_repository.select_all()
-#     return render_template("merchant/transactions.html", merchant = merchant)
-
 @tag_blueprint.route("/tag/new_tag")
 def new_tag():
     tags = tag_repository.select_all()
     return render_template("/tags/new_tag.html", tags = tags)
-
-# @merchant_blueprint.route("/merchant/new_transaction")
-# def new_transaction():
-#     merchants = merchant_repository.select_all()
-#     return render_template("merchant/new_transaction.html", merchants = merchants)
 
 @tag_blueprint.route("/tag",  methods=['POST'])
 def create_tag():
@@ -48,11 +38,6 @@ def update_method(id):
     tag = Tag(category, id)
     tag_repository.update(tag)
     return redirect('/tags')
-
-# @merchant_blueprint.route("/merchant/<id>/view", methods=['GET'])
-# def view_merchant(id):
-#     merchant = merchant_repository.select(id)
-#     return render_template("merchant/view.html", merchant = merchant)
 
 @tag_blueprint.route("/tag/<id>/delete", methods=['POST'])
 def delete_tag(id):

@@ -1,7 +1,7 @@
 # Money Manager
 ## Project Title and Description:
 
-Money Manager - This is a spending tracker where a user can add merchants, tags and transactions to keep on top of their spending. The user is able to see all of their transactions on one page, see a total of their spending and edit and delete tags, merchants and transactions.
+This is a spending tracker where a user can add merchants, tags and transactions to keep on top of their spending. The user is able to see all of their transactions on one page, see a total of their spending and edit and delete tags, merchants and transactions.
 
 ## Background:
 

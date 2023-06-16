@@ -1,14 +1,14 @@
 # Money Manager
 ## Project Title and Description:
 
-Money Manager - This is a spending tracker where a user can add merchants, tags and transactions to keep on top of their spending. The user is able to: see all of their transactions on one page, see a total of their spending and edit and delete tags, merchants and transactions.
+Money Manager - This is a spending tracker where a user can add merchants, tags and transactions to keep on top of their spending. The user is able to see all of their transactions on one page, see a total of their spending and edit and delete tags, merchants and transactions.
 
 ## Background:
 
 I am a CodeClan student and our first module was working with Python. At the end of the module we had solo projects where we had one week to plan and build an app using Python and Flask. I dedided to build a spending tracker where a user can add and edit transactions and these transactions would be saved in a database using PostgreSQL.
 
 
-# How to run the App:
+# Requirements for the App:
 The packages required to run the App are Flask, PostgreSQL, psycopg2 and Python.
 
 ## Screenshots:
